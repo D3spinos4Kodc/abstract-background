@@ -1,0 +1,144 @@
+/* Configuración básica */
+html, body {
+  font-family: 'Dongle', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* Variables de color y configuración */
+:root {
+  --color-fondo1: rgb(20, 0, 26);
+  --color-fondo2: rgb(13, 1, 58);
+  --color1: 75, 0, 130;  
+  --color2: 130, 60, 90;  
+  --color3:	15, 2, 188;
+  --color4: 0, 47, 49;  
+  --color5: 73.7, 5.9, 0.8;  
+  --color-interactivo: 	40, 100, 40;  
+  --tamano-circulo: 100%;
+  --mezcla: screen;
+} 
+
+.texto-central {
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 96px;
+  color: white;
+  opacity: 0.8;
+  user-select: none;
+  text-shadow: 1px 1px rgba(0,0,0,0.1);
+}
+
+
+/* Animaciones para las burbujas */
+@keyframes moverEnCirculo {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes moverVertical {
+  0% { transform: translateY(-50%); }
+  50% { transform: translateY(50%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes moverHorizontal {
+  0% { transform: translateX(-50%) translateY(-10%); }
+  50% { transform: translateX(50%) translateY(10%); }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+/* Estilos del fondo gradiente y configuración del SVG */
+.fondo-gradiente {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-fondo1), var(--color-fondo2));
+  top: 0;
+  left: 0;
+}
+
+.fondo-gradiente svg {
+  display: none;
+}
+
+.contenedor-burbujas {
+  filter: url(#efecto-goo) blur(70px);
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilos y animaciones para las burbujas */
+.burbuja {
+  position: absolute;
+  mix-blend-mode: var(--mezcla);
+  opacity: 0.9;
+}
+
+.b1 {
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 49%) no-repeat;
+  width: var(--tamano-circulo);
+  height: var(--tamano-circulo);
+  top: calc(50% - var(--tamano-circulo) / 2);
+  left: calc(60% - var(--tamano-circulo) / 2);
+  transform-origin: center center;
+  animation: moverVertical 40s ease infinite;
+}
+
+.b2 {
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 45%) no-repeat;
+  width: var(--tamano-circulo);
+  height: var(--tamano-circulo);
+  top: calc(50% - var(--tamano-circulo) / 2);
+  left: calc(50% - var(--tamano-circulo) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moverEnCirculo 20s reverse infinite;
+}
+
+.b3 {
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 48%) no-repeat;
+  width: var(--tamano-circulo);
+  height: var(--tamano-circulo);
+  top: calc(60% - var(--tamano-circulo) / 2 + 200px);
+  left: calc(48% - var(--tamano-circulo) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moverEnCirculo 40s linear infinite;
+}
+
+.b4 {
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 55%) no-repeat;
+  width: var(--tamano-circulo);
+  height: var(--tamano-circulo);
+  top: calc(50% - var(--tamano-circulo) / 2);
+  left: calc(30% - var(--tamano-circulo) / 2);
+  transform-origin: calc(42% - 200px);
+  animation: moverHorizontal 40s ease infinite;
+}
+
+.b5 {
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 30%) no-repeat;
+  width: calc(var(--tamano-circulo) * 2);
+  height: calc(var(--tamano-circulo) * 2);
+  top: calc(40% - var(--tamano-circulo));
+  left: calc(35% - var(--tamano-circulo));
+  transform-origin: calc(45% - 800px) calc(65% + 200px);
+  animation: moverEnCirculo 30s ease infinite;
+}
+
+.burbuja-interactiva {
+  background: radial-gradient(circle at center, rgba(var(--color-interactivo), 0.5) 0, rgba(var(--color-interactivo), 0) 30%) no-repeat;
+  width: 110%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  animation: none;
+}

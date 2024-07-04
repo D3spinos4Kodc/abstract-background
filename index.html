@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transformacion css burbujas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <div class="texto-central">Html, Css y Js</div>
+  <div class="fondo-gradiente">
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="efecto-goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="contenedor-burbujas">
+      <div class="burbuja b1"></div>
+      <div class="burbuja b2"></div>
+      <div class="burbuja b3"></div>
+      <div class="burbuja b4"></div>
+      <div class="burbuja b5"></div>
+      <div class="burbuja-interactiva"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>
