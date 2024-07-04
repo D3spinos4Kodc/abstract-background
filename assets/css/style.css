@@ -67,9 +67,9 @@ html, body {
   left: 0;
 }
 
-.fondo-gradiente svg {
+/*.fondo-gradiente svg {
   display: none;
-}
+}*/
 
 .contenedor-burbujas {
   filter: url(#efecto-goo) blur(70px);
